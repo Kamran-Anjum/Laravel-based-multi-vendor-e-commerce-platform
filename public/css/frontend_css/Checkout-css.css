@@ -1,0 +1,120 @@
+fieldset.scheduler-border {
+  border: 2px solid #c452a3 !important;;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #bf449e;
+  box-shadow: 0px 0px 0px 0px #bf449e;
+}
+
+legend.scheduler-border {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #bf449e !important;
+  border-color: #bf449e !important;
+}
+
+.btn-outline-primary {
+  color: #bf449e;
+  border: none;
+  border-radius: 20px;
+  font-size: smaller;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus, .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem rgba(191,68,158,0.43) !important;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.checkbox-container:hover input ~ .checkbox-checkmark {
+  background-color: #CCC;
+}
+
+.checkbox-container input:checked ~ .checkbox-checkmark {
+  background-color: #bf449e;
+}
+
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkbox-checkmark:after {
+  left: 9px;
+  top: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 360px) {
+  #delivery_option_table {
+    width: 90% !important;
+  }
+}
+
+badge1 {
+  position: relative;
+}
+
+.badge1[data-badge]:after {
+  content: attr(data-badge);
+  position: absolute;
+  top: 6px;
+  right: 17px;
+  font-size: .7em;
+  background: rgba(191,68,158,0.75);
+  color: white;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px #333;
+}
+

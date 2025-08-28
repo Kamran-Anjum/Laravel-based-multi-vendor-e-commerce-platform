@@ -1,0 +1,74 @@
+.ps-accordion {
+  background-color: #ffffff;
+  color: #444;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 0.9rem;
+  transition: 0.4s;
+}
+
+.ps-active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.ps-accordion:after {
+  content: '\002B';
+  color: #bf449e;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.ps-active:after {
+  content: "\2212";
+}
+
+.ps-panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.ps-panel:after {
+  background-color: #fff;
+}
+
+.btn.btn-outline-primary:hover {
+  background: #bf449e !important;
+  color: #ffffff !important;
+}
+.ps-panel.show {
+    display: block !important;
+    max-height: 228px;
+
+}
+.sub-cat-btn{
+  background: transparent;
+  border:none;
+  text-align: left;
+}
+
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active{
+  background: #b846913d !important;
+  color: #b84691;
+}
+.ps-accordion {
+  background: transparent;
+  padding: 3px;
+}
+.ps-active, .accordion:hover {
+
+    background: #b846913d !important;
+    color: #b84691;
+}
+ /* div.panel {
+     display: none;
+ }

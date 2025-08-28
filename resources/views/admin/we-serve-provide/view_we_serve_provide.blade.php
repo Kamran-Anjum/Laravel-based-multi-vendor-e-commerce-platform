@@ -1,0 +1,91 @@
+@extends('layouts.adminLayout.admin_design')
+@section('content')
+
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">We Provide/Serve Card</a> <a href="#" class="current">View We Provide/Serve Card</a> </div>
+    <h1>We Provide/Serve Card</h1>
+      @if(Session::has('flash_message_error'))
+        <div class="alert alert-error alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{!! session('flash_message_error') !!}</strong>
+        </div>
+
+      @endif
+      @if(Session::has('flash_message_success'))
+        <div class="alert alert-success alert-block">
+          <button type="button" class="close" data-dismiss="alert">×</button> 
+          <strong>{!! session('flash_message_success') !!}</strong>
+        </div>
+      @endif 
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <a href="{{ url('/admin/add-we-serve-card' ) }}">
+      <button type="button" class="btn btn-success">Add New</button>
+    </a>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>View We Serve/Provide</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Image</th>
+                  <th>En Title</th>
+                  <th>En Text</th>
+                  <th>Ar Title</th>
+                  <th>Ar Text</th>
+                  <th>Active</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $i = 1; ?>
+              	@foreach($we_serve_provides as $we_serve_provide)
+                  <tr class="gradeX">
+                    <td>{{ $i }}</td>
+                    <td>
+                        <img src=" {{ asset('/images/backend_images/we_serve_provide/'.$we_serve_provide->image ) }}" alt="home_banner-image" width="100">
+                    </td>
+                    <td>
+                      {{ $we_serve_provide->en_title }}
+                    </td>
+                    <td>
+                      {{ $we_serve_provide->en_title_2 }}
+                    </td>
+                    <td>
+                      {{ $we_serve_provide->ar_title }}
+                    </td>
+                    <td>
+                      {{ $we_serve_provide->ar_title_2 }}
+                    </td>
+                    <td>
+                      @if($we_serve_provide->isActive == '1')
+                        Yes
+                      @else
+                        No
+                      @endif
+                    </td>
+                    <td class="center">
+                      <a href="{{ url('/admin/edit-we-serve-card/'.$we_serve_provide->id ) }}" class="btn btn-primary btn-mini">Edit</a>
+                      <a class="btn btn-danger btn-mini sa-confirm-delete" param-id="{{ $we_serve_provide->id }}" param-route="delete-we-serve-card" param-user="admin" href="javascript:">Delete</a>
+                    </td>
+                  </tr>
+                  <?php $i = $i+1; ?>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endsection

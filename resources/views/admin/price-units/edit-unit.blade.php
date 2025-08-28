@@ -1,0 +1,102 @@
+@extends('layouts.adminLayout.admin_design')
+@section('content')
+
+
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Price Units</a> <a href="#" class="current">Edit Price Units</a> </div>
+    <h1>Price Units</h1>
+  </div>
+  <style>
+    .form-horizontal .control-label {
+      text-align: left !important;
+      padding-left: 10px !important;
+    }
+  </style>
+  <div class="container-fluid"><hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/edit-price-unit/'.$price_unit_trans->id ) }}" name="edit_price_unit" id="edit_product_unit" novalidate="novalidate"> {{ csrf_field() }}
+          <div class="widget-box">
+            <input type="hidden" name="lang" id="lang" value="{{ $price_unit_trans->lang }}">
+            @if($price_unit_trans->lang == 'en')
+              <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
+                <h5>Edit Price Unit</h5>
+              </div>
+              <div class="widget-content nopadding">
+                <div class="control-group">
+                  <label class="control-label"><strong>Name</strong></label>
+                  <div class="controls">
+                    <input type="text" name="name" id="name" value="{{ $price_unit_trans->name }}">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"><strong>code</strong></label>
+                  <div class="controls">
+                    <input type="text" name="code" id="code" value="{{ $price_unit_trans->code }}">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"><strong>Short Name</strong></label>
+                  <div class="controls">
+                    <input type="text" name="short_name" id="short_name" value="{{ $price_unit_trans->shortName }}">
+                  </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><strong>Active</strong></label>
+                    <div class="controls">
+                        <select id="isActive" name="isActive" class="Active">
+                            <option value="0" @if($price_unit_trans->isActive == 0) selected="true" @endif > No </option>
+                            <option value="1" @if($price_unit_trans->isActive == 1) selected="true" @endif> Yes </option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <div class="form-actions">
+                <input type="submit" value="Edit Price Unit" class="btn btn-success">
+              </div>
+            @elseif($price_unit_trans->lang == 'ar')
+              <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
+                <h5>تحرير العلامة التجارية</h5>
+              </div>
+              <div class="widget-content nopadding">
+                <div class="control-group">
+                  <label class="control-label"><strong>اسم</strong></label>
+                  <div class="controls">
+                    <input dir="rtl" type="text" name="name" id="name" value="{{ $price_unit_trans->name }}">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"><strong>الشفرة</strong></label>
+                  <div class="controls">
+                    <input dir="rtl" type="text" name="code" id="code" value="{{ $price_unit_trans->code }}">
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label"><strong>اسم قصير</strong></label>
+                  <div class="controls">
+                    <input dir="rtl" type="text" name="short_name" id="short_name" value="{{ $price_unit_trans->shortName }}">
+                  </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><strong>نشيط</strong></label>
+                    <div class="controls">
+                        <select id="isActive" name="isActive" class="Active">
+                            <option value="0" @if($price_unit_trans->isActive == 0) selected="true" @endif >  رقم  </option>
+                            <option value="1" @if($price_unit_trans->isActive == 1) selected="true" @endif>  نعم  </option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+              <div class="form-actions">
+                <input type="submit" value="تحرير وحدة السعر" class="btn btn-success">
+              </div>
+            @endif
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endsection
